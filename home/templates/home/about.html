@@ -1,0 +1,169 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-entity-viewnode">
+						<div  class="clearfix">
+									<div class="clearfix grid">
+										<div  class="layout__region layout__region--title has-menu">
+											<h1 class="h1">
+												About Us
+											</h1>
+											<div class="intro-wrapper">
+												{% if about_page.description  and about_page.description.strip  %}
+												{{about_page.description  | safe }}
+												{% else%}
+												<p>Jalsmruti is a non profit organization that strives to enable and empower cities, companies and communities to become water prosperous through actions that are focused on restoring their  local natural water cycle and are well within their respective circle of influence & control. Jalsmruti helps cities, companies and communities be the change that they want to see around them.</p>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+								<div>
+									<div class="paragraph paragraph--type--side-by-side paragraph--view-mode--default">
+										<div class="field field--name-field-title field__item">
+											<h2 class="h2">At a Glance</h2>
+										</div>
+										<div class="clearfix text-formatted field field--name-field-body field__item">
+											<div class="narrative-taxonomy">
+												<h2>Our Challenges</h2>
+												{% if about_page.challenges  and about_page.challenges.strip  %}
+												{{about_page.challenges  | safe }}
+												{% else%}
+												<p>Niti Aayog in its latest report has alerted to the bleak future of water across the nation. Meanwhile, continued overconsumption and the impact of climate change are expected to reduce the availability of water resources for the most needy regions of the planet.  Therefore, our challenge lies in collectively examining & questioning the assumptions and beliefs that landed us here and to ensure that the new solutions do not arise from the same set of mindset that has created the problem.</p>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+									<div class="paragraph paragraph--type--image paragraph--view-mode--default">
+										<div class="blazy field field--name-field-image field__item">
+											<div class="media media--bundle--image media--loading media--image">
+												<picture>
+													{% if about_page.image  and about_page.image.url.strip %}
+													<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{about_page.image.url}}">
+													<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{about_page.image.url}}"/>
+													<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{about_page.image.url}}"/>
+													<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{about_page.image.url}}"/>
+													<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{about_page.image.url}}"/>
+													<img class="b-lazy b-responsive" loading="lazy" data-src="{{about_page.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 455 302&#039;%2F%3E" alt="" typeof="foaf:Image" />
+													{% else%}
+													<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}">
+													<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}"/>
+													<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}"/>
+													<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}"/>
+													<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}"/>
+													<img class="b-lazy b-responsive" loading="lazy" data-src="{% static 'images/3000x900/main-background.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 455 302&#039;%2F%3E" alt="" typeof="foaf:Image" />
+													{% endif %}
+												</picture>
+											</div>
+										</div>
+									</div>
+									<div class="paragraph paragraph--type--side-by-side paragraph--view-mode--default">
+										<div class="field field--name-field-title field__item">
+											<h2 class="h2">Vision and Mission</h2>
+										</div>
+										<div class="clearfix text-formatted field field--name-field-body field__item">
+											{% if about_page.vision_mission  and about_page.vision_mission.strip  %}
+											{{about_page.vision_mission  | safe }}
+											{% else%}
+											<p>Our vision: <em>Making India Sujalaam Sufalaam </em></p>
+											<p>
+												Our mission: <em>By healing & nurturing jal jangal jameen through the following means</em>
+											</p>
+											<ul>
+												<li>
+													Providing powerful tools, techniques, knowledge and skills that individuals, organizations, community groups can use to make a transformative change to the local natural water cycle within their own circle of influence and control.
+												</li>
+												<li>
+													Partnering with champions and leaders of social, business and environmental programs to help them address the local water cycle more proactively and effectively to mitigate the risk of water scarcity becoming a critical risk factor in the success of their programs.
+												</li>
+											</ul>
+											{% endif %}
+										</div>
+									</div>
+									<div class="paragraph paragraph--type--side-by-side paragraph--view-mode--default">
+										<div class="field field--name-field-title field__item">
+											<h2 class="h2">Our Approach</h2>
+										</div>
+										<div class="clearfix text-formatted field field--name-field-body field__item">
+											{% if about_page.approach  and about_page.approach.strip  %}
+											{{about_page.approach  | safe }}
+											{% else%}
+											<p>An unintended consequence of development has been the negligence of the trio of jal jangal jameen which has spiralled us into the current water crisis. The trio of jal jangal jameen is the most critical and interdependent element of the natural water cycle. Hence, our approach involves restoring water prosperity by directing the intention, attention and action of the community towards restoring & protecting the jal jangal jameen trio in their local areas of influence & control.
+											</p>
+											{% endif %}
+										</div>
+									</div>
+									<div class="paragraph paragraph--type--side-by-side paragraph--view-mode--default">
+										<div class="field field--name-field-title field__item">
+											<h2 class="h2">Our Services</h2>
+										</div>
+										<div class="clearfix text-formatted field field--name-field-body field__item">
+											{% if about_page.services  and about_page.services.strip  %}
+											{{about_page.services  | safe }}
+											{% else%}
+											<ul>
+												<li>Action Research in Community led Water Cycle Restoration</li>
+												<li>Capacity Building & Behaviour Change Communications in Water Conservation</li>
+												<li>Facilitation of Sustainable Water Management Workshops</li>
+												<li>Enable & Incubate Water Innovations</li>
+												<li>Support Early Stage Water Startups</li>
+												<li>Convening Water Positive Learning Circles for Urban & Rural Groups</li>
+											</ul>
+											{% endif %}
+										</div>
+									</div>
+									<div class="paragraph paragraph--view-mode--default">
+										<div class="has-light-gray-background-color field field__item">
+											<div class="block-wrapper image-cta">
+												<div class="cta-text-wrapper container padding-vertical">
+													<div class="cta-text-wrapper__inner">
+														<div  class="h2 margin-bottom-sm">
+															Our Team
+														</div>
+														<div class="margin-bottom-sm ">
+															{% if about_page.team  and about_page.team.strip  %}
+															{{about_page.team  | safe }}
+															{% else%}
+															<p>We have a diverse team who are passionate about promoting a water paradigm that cares about bringing water prosperity by explicitly acknowledging & managing its intimate relationship with jangal and jameen.</p>
+															{% endif %}
+														</div>
+														<div class="button-wrapper">
+															<a href="{% url 'team:team_index' %}" class="button">See our Board Members</a>
+														</div>
+													</div>
+												</div>
+												<div class="image-wrapper">
+													<div class="media media--bundle--image media--image">
+														<picture>
+															{% if about_page.team_image  and about_page.team_image.url.strip %}
+															<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{about_page.image.url}}">
+															<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{about_page.team_image.url}}"/>
+															<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{about_page.team_image.url}}"/>
+															<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{about_page.team_image.url}}"/>
+															<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{about_page.team_image.url}}"/>
+															<img class="media__image media__element b-lazy b-responsive" loading="lazy" data-src="{{about_page.team_image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 455 302&#039;%2F%3E" alt="" typeof="foaf:Image" />
+															{% else%}
+															<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/1000x625/team.jpg' %}"/>
+															<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/720x450/team.jpg' %}"/>
+															<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/512x320/team.jpg' %}"/>
+															<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/768x720/team.jpg' %}"/>
+															<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/500x375/team.jpg' %}"/>
+															<img class="b-lazy b-responsive" loading="lazy" data-src="{% static 'images/500x375/team.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 500 375&#039;%2F%3E" alt="" typeof="foaf:Image" />
+															{% endif %}
+														</picture>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+						</div>
+					</div>
+				</div>
+		</div>
+	</article>
+</div>
+{% endblock content %}

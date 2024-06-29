@@ -1,0 +1,94 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-entity-viewnode">
+						<div class="article">
+							<div  class="layout__region layout__region--hero">
+								<div class="media media--bundle--image media--loading media--image">
+									<picture>
+										<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}">
+										<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+										<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+										<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+										<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+										<img class="b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 455 302&#039;%2F%3E" alt="" typeof="foaf:Image" />
+									</picture>
+								</div>
+							</div>
+							<div class="grid margin-bottom-sm">
+								<div  class="layout__region layout__region--title full-width">
+									<h1 class="h1">
+										{{post.title}}
+									</h1>
+								</div>
+								<div  class="layout__region layout__region--byline full-width">
+									<span  class="article-date">
+									{{post.created_on|date:"F d, Y"}}
+									</span>
+									By      <span  class="margin-right-xs">
+									<a hreflang="en">{{post.author}}</a>
+									</span>
+								</div>
+							</div>
+							<div class="article__meta grid">
+								<div  class="layout__region left-sidebar">
+									<div  class="h4" >
+										{{post.category}}
+									</div>
+								</div>
+								<div  class="layout__region layout__region--category">
+									<div class="field-label-inline">Topic</div>
+									<a class="taxonomy" hreflang="en">{{post.topic}}</a>
+								</div>
+								<div  class="layout__region layout__region--share right-sidebar">
+									<div id="social-sharing-block">
+										<nav role="navigation">
+											<ul class="">
+												<li>
+													<a class="share-icon icon-social" aria-haspopup="true">Social</a>
+													<ul class="dropdown" aria-label="submenu">
+														<li><a href="https://twitter.com/intent/tweet?text={{post.title}}+{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }} via @@jalsmruti" title="Share to Twitter" aria-label="Share to Twitter" class="social-sharing-buttons__button" rel="noopener">
+															Twitter
+															</a>
+														</li>
+														<li>
+															<a href="https://www.linkedin.com/shareArticle?mini=true&url={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to Linkedin" aria-label="Share to Linkedin" class="social-sharing-buttons__button" rel="noopener">
+															LinkedIn
+															</a>
+														</li>
+														<li>
+															<a href="https://www.facebook.com/sharer/sharer.php?u={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to Facebook" aria-label="Share to Facebook" class="social-sharing-buttons__button" rel="noopener">
+															Facebook
+															</a>
+														</li>
+													</ul>
+												</li>
+												<li>
+													<a class="share-icon icon-email social-sharing-buttons__button" href="mailto:?subject={{post.title}}&body={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to E-mail" aria-label="Share to E-mail"  target="_blank" rel="noopener">
+													Email
+													</a>
+												</li>
+												<li><a class="share-icon icon-print" href="javascript:window.print()" aria-label="Print document">Print</a></li>
+											</ul>
+										</nav>
+									</div>
+								</div>
+							</div>
+							<div class="article__main grid margin-top-sm">
+								<div  class="layout__region layout__region--main_content main-content margin-bottom-xs">
+                                    {% if post.body and post.body.strip %}
+                                    {{post.body | safe }}
+                                    {% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</article>
+</div>
+{% endblock content %}

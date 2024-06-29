@@ -1,0 +1,137 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-entity-viewnode">
+						<div class="publication__detail tall-hero">
+							<div class="landing-page__hero has-image">
+								<div class="hero__image">
+									<div class="media media--bundle--image media--loading media--image">
+										<picture>
+											{% if post.image  and post.image.url.strip %}
+                                            <source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+                                            {% else%}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/1440x700/main-background.jpg' %}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/1024x640/main-background.jpg' %}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/768x640/main-background.jpg' %}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/500x700/main-background.jpg' %}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{% static 'images/img/main-background.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+                                            {% endif %}
+										</picture>
+									</div>
+								</div>
+								<div class="hero__text">
+									<div class="grid">
+										<div class="hero__text--inner padding-vertical">
+											<div class="margin-top-xl"></div>
+                                            {% if post.title and post.title.strip %}
+                                            <h1 class="h1">
+												{{post.title}}
+											</h1>
+                                            {% else%}
+                                            <h1 class="h1">
+												Initiative by Jalsmruti
+											</h1>
+                                            {% endif %}
+                                            {% if post.description and post.description.strip %}
+											<div class="intro-text">
+												<p>{{post.description}}</p>
+											</div>
+                                            {% endif %}
+											{% if post.button_url  and post.button_url.strip and post.button and post.button.strip  %}
+											<div class="buttons margin-top-md">
+												<a href="{{post.button_url}}" target="_blank" class="button">{{post.button}}<span class="visually-hidden">{{postal.button}}</span></a>
+											</div>
+											{% endif %}
+										</div>
+									</div>
+								</div>
+								<div class="dark-overlay"></div>
+							</div>
+							<div class="detail__meta grid margin-top-md margin-bottom-md">
+								<div class="detail__meta-inner meta-inner two-column">
+									<div  class="layout__region layout__region--category">
+										<div  class="category-wrapper">
+											<div  class="field-label-inline">Start Date</div>
+											<span  class="topic-tag" >
+											<a hreflang="en">{{post.created_on|date:"F d, Y"}}</a></span>
+										</div>
+										{% if post.region  and post.region.strip%}
+										<span  class="category-wrapper topic-tag-wrapper regions">
+											<div  class="field-label-inline">Regions</div>
+											<a hreflang="en">{{post.region}}</a>
+										</span>
+										{% endif %}
+									</div>
+									<div  class="layout__region layout__region--share">
+										<div id="social-sharing-block">
+											<nav role="navigation">
+												<ul class="">
+													<li>
+														<a class="share-icon"  aria-haspopup="true">Social</a>
+														<ul class="dropdown" aria-label="submenu">
+															<li><a href="https://twitter.com/intent/tweet?text={{post.title}}+{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }} via @@jalsmruti" title="Share to Twitter" aria-label="Share to Twitter" class="social-sharing-buttons__button" rel="noopener">
+																Twitter
+																</a>
+															</li>
+															<li>
+																<a href="https://www.linkedin.com/shareArticle?mini=true&url={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to Linkedin" aria-label="Share to Linkedin" class="social-sharing-buttons__button" rel="noopener">
+																LinkedIn
+																</a>
+															</li>
+															<li>
+																<a href="https://www.facebook.com/sharer/sharer.php?u={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to Facebook" aria-label="Share to Facebook" class="social-sharing-buttons__button" rel="noopener">
+																Facebook
+																</a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a class="share-icon icon-email social-sharing-buttons__button" href="mailto:?subject={{post.title}}&body={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to E-mail" aria-label="Share to E-mail"  target="_blank" rel="noopener">
+														Email
+														</a>
+													</li>
+													<li><a class="share-icon icon-print" href="javascript:window.print()" aria-label="Print document">Print</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+								{% if post.quote  and post.quote.strip%}
+								<div class="detail__meta-secondary">
+									<div  class="narrative-taxonomy">
+										<p>{{post.quote}}</p>
+									</div>
+								</div>
+								{% endif %}
+							</div>
+							<div class="publication__main grid margin-top-sm">
+								{% if post.quote  and post.quote.strip%}
+								<div  class="layout__region layout__region--sidebar sidebar">
+									<div  class="narrative-taxonomy">
+										<p>{{post.quote}}</p>
+									</div>
+								</div>
+								{% endif %}
+								<div  class="layout__region layout__region--main_content main-content  margin-bottom-sm">
+                                    {% if post.body and post.body.strip %}
+                                    {{post.body | safe }}
+                                    {% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</article>
+</div>
+{% endblock content %}

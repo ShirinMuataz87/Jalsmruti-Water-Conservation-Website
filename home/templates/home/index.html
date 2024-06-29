@@ -1,0 +1,322 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-inline-blockhero">
+						<div  class="clearfix">
+							<div class="landing-page__hero has-image">
+								<div class="hero__image">
+									<div class="media media--loading media--image">
+										<picture>
+                                            {% if home.image  and home.image.url.strip %}
+                                            <source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{home.image.url}}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{home.image.url}}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{home.image.url}}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{home.image.url}}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{home.image.url}}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{{home.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+                                            {% else%}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/1440x700/main-background.jpg' %}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/1024x640/main-background.jpg' %}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/768x640/main-background.jpg' %}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/500x700/main-background.jpg' %}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{% static 'images/img/main-background.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+                                            {% endif %}
+										</picture>
+									</div>
+								</div>
+								<div class="hero__text">
+									<div class="grid">
+										<div class="hero__text--inner padding-vertical">
+											<div class="margin-top-xl"></div>
+											<h1 class="h1 xl white">
+                                                {% if home.description  and home.description.strip  %}
+                                                {{home.description  | safe }}
+                                                {% else%}
+                                                <p>Making India <span class="has-water-color">Sujalaam</span> <span class="has-green-color">Sufalaam</span> by Healing & Protecting Jal Jangal & Jameen</p>
+                                                {% endif %}
+											</h1>
+										</div>
+									</div>
+								</div>
+								<div class="dark-overlay"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="field-intro-paragraphs block-field-blocknodeprogram-centerfield-intro-paragraphs">
+						<div class="field field__items">
+							<div class="field__item">
+								<div class="paragraph paragraph--type--program-lead-in paragraph--view-mode--default">
+									<div class="field field--name-field-leadin-title field__item">
+										<h2>Our Challenge</h2>
+									</div>
+									<div class="clearfix text-formatted field field--name-field-leadin-paragraph field__item">
+										{% if home.challenge  and home.challenge.strip  %}
+										{{home.challenge  | safe }}
+										{% else%}
+										<p>Since 1960, water availability per person worldwide has fallen by 55%. The world's population is expected to reach 9.7 billion by 2050. Meanwhile, continued overconsumption and the impact of climate change are expected to reduce the availability of water resources for the most needy regions of the planet.  Therefore, our challenge lies in collectively examining & questioning the assumptions and beliefs that landed us here to ensure that the new solutions do not arise from the same set of mindset that has created the problem.</p>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+                            {% if facts and facts.count > 0  %}
+							<div class="field__item">
+								<div class="paragraph paragraph--type--statistics paragraph--view-mode--default">
+									<div class="field field--name-field-statistics field__items">
+                                        {% for fact in facts %}
+										<div class="field__item">
+											<div class="paragraph paragraph--type--statistic paragraph--view-mode--default">
+												<div class="field field--name-field-statistic-number field__item">{{fact.percentage}}%</div>
+												<div class="clearfix text-formatted field field--name-field-statistic-text field__item">
+													<p>{{fact.facts}}</p>
+												</div>
+											</div>
+										</div>
+                                        {% endfor %}
+									</div>
+								</div>
+							</div>
+                            {% endif %}
+							<div class="field__item">
+								<div class="paragraph paragraph--type--program-lead-in paragraph--view-mode--default">
+									<div class="field field--name-field-leadin-title field__item">
+										<h2>Our Approach</h2>
+									</div>
+									<div class="clearfix text-formatted field field--name-field-leadin-paragraph field__item">
+										{% if home.approach  and home.approach.strip  %}
+										{{home.approach  | safe }}
+										{% else%}
+										<p><strong>An unintended consequence of development has been the negligence of the trio of jal jangal jameen which has spiralled us into the current water crisis.</strong></p>
+										<p>The trio of jal jangal jameen is the most critical and interdependent element of the natural water cycle. Hence, our approach involves restoring water prosperity by directing the intention, attention and action of the community towards restoring & protecting the jal jangal jameen trio in their local areas of influence & control.</p>
+										{% endif %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% if main_initiative %}
+						<div  class="clearfix unique-feature padding-vertical">
+							<a href="{% url 'initiative:post_detail' main_initiative.pk  main_initiative.url_slug  %}" class="image-link" aria-hidden="true" tabindex="-1" >
+								<div class="image-wrapper">
+									<div class="media media--bundle--image media--loading media--image">
+										<picture>
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{main_initiative.image.url}}"/>
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{main_initiative.image.url}}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{main_initiative.image.url}}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{main_initiative.image.url}}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{main_initiative.image.url}}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{{main_initiative.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 500 240&#039;%2F%3E" alt="" typeof="foaf:Image" />
+										</picture>
+									</div>
+									<div class="grid white-corners">
+										<div class="inner-box"></div>
+									</div>
+									<div class="grid image-box">
+										<div class="inner-box blue"></div>
+									</div>
+								</div>
+							</a>
+							<div class="grid">
+								<div class="left-text-wrapper">
+									<a href="{% url 'initiative:post_detail' main_initiative.pk  main_initiative.url_slug  %}"  class="block_label" aria-hidden="true" tabindex="-1" >
+										<h2  class="h2" >{{main_initiative.title | truncatechars:40}}</h2>
+									</a>
+								</div>
+								<div class="right-text-wrapper">
+									<div  class="intro" >
+										<p>{{main_initiative.long_description | truncatechars:200}}</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+					{% if initiatives_post and initiatives_post|length > 0 %}
+						<div class="unfriendly-block">
+							<div class="grid top-border-thick">
+								<div class="narrative-taxonomy">
+									<div class="clearfix text-formatted field field__item">
+										<p><a href="{% url 'initiative:initiative_index' %}">Explore all Initiatives</a> in depth</p>
+									</div>
+								</div>
+							</div>
+							<div class="content grid">
+								<div class="layout__region--listing">
+									<div class="field field--name-field-listing field--label-hidden">
+										<div class="field__item">
+												<div class="tiles content-listing view">
+													<div class="view-content">
+														<div class="item-list">
+															<ul class="listing-items">
+																{% for post in initiatives_post %}
+																<li>
+																	<div  class="tile project_detail">
+																		<div class="card-image">
+																			<div class="media media--bundle--image media--loading media--image">
+																				<picture>
+																					<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<img class="b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 463 330&#039;%2F%3E" alt="{{post.title}}" typeof="foaf:Image" />
+																				</picture>
+																			</div>
+																		</div>
+																		<div class="card-text has-white-background-color">
+																			<div class="margin-right-sm margin-top-sm">
+																				<h3 class="h3">{{post.title | truncatechars:50}}</h3>
+																				<div  class="secondary" >
+																					<p>{{post.description | truncatechars:100}}</p>
+																				</div>
+																				<div class="tile-buttons">
+																					<a href="{% url 'initiative:post_detail' post.pk  post.url_slug  %}" class="button small white" hreflang="en">{% if post.visit_button  and post.visit_button.strip  %}{{post.visit_button}}{% else%}Visit Program{% endif %}</a>
+																				</div>
+																				<div class="subtext top-border-tiny">
+																					<span class="italic-xtra-tiny"></span>
+																					<span  class="small label" >
+																					<a href="{% url 'initiative:post_detail' post.pk  post.url_slug  %}" hreflang="en"></a></span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																{% endfor %}
+															</ul>
+														</div>
+													</div>
+												</div>
+										</div>
+									</div>
+								</div>
+								<div class="layout__region--more-link">
+									<span class="more-link__line"></span>
+									<a href="{% url 'initiative:initiative_index' %}" class="button small">View all initiatives</a>
+								</div>
+							</div>
+						</div>
+					{% endif %}
+					{% if insights_post and insights_post.count > 0 %}
+					<div class="block-inline-blocklisting-block">
+						<div class="grid margin-bottom-lg unfriendly-block">
+							<h2  class="h3 layout__region layout__region--header top-border-thick margin-bottom-md">
+								Latest Water Insights
+							</h2>
+							<div  class="layout__region layout__region--listing">
+								<div class="field field--name-field-listing">
+									<div class="field__item">
+											<div class="card-listing content-listing view view-content-listing">
+												<div class="view-content">
+													<div class="item-list">
+														<ul class="listing-items">
+															{% for post in insights_post %}
+															<li>
+																<div class="article">
+																	<div  class="clearfix card">
+																		<div class="card-image">
+																			<div class="media media--bundle--image media--loading media--image">
+																				<picture>
+																					<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 1024px) and (max-width: 1440px)" type="images/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<img class="b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 215 145&#039;%2F%3E" alt="" typeof="foaf:Image" />
+																				</picture>
+																			</div>
+																		</div>
+																		<div class="card-text">
+																			<div class="tags topic-tag margin-top-xs">
+																				<a href="{% url 'insight:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.category}}</a>
+																			</div>
+																			<h3 class="teaser-title margin-top-xs ">
+																				<a href="{% url 'insight:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.title |truncatechars:95}}</a>
+																			</h3>
+																			<span class="content-type-region bundle">
+																			{{post.topic}}
+																			</span>
+																			<span class="date-region date">
+																			{{post.created_on|date:"F d, Y"}}
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															{% endfor %}
+														</ul>
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+							<div class="layout__region--more-link">
+								<span class="more-link__line"></span>
+								<a href="{% url 'insight:insight_index' %}" class="button small">View all insights</a>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+					{% if events_post and events_post.count > 0 %}
+					<div class="block-inline-blocklisting-block">
+						<div class="teasers-content_listing grid margin-bottom-lg unfriendly-block">
+							<h2  class="h3 layout__region layout__region--header top-border-thick margin-bottom-md">
+								Events
+							</h2>
+							<div  class="layout__region layout__region--listing">
+								<div class="field field--name-field-listing">
+									<div class="field__item">
+											<div class="content-listing view view-content-listing">
+												<div class="view-content">
+													<div class="item-list">
+														<ul class="listing-items">
+															{% for post in events_post %}
+															<li>
+																<div class="teaser-item">
+																	<div class="tags topic-tag margin-top-xs">
+																		<a href="{% url 'event:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.category}}</a>
+																	</div>
+																	<div class="teaser__inner-wrapper">
+																		<div class="left-section margin-bottom-xs">
+																			<h3 class="teaser-title margin-top-xs">
+																				<a href="{% url 'event:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.title |truncatechars:120}}</a>
+																			</h3>
+																			<span class="content-type-region bundle">
+																			{{post.type}}
+																			</span>
+																			<span class="date-region date">
+																			{{post.created_on|date:"F d, Y"}}
+																			</span>
+																		</div>
+																		<div class="right-section margin-top-xs">
+																		</div>
+																	</div>
+																</div>
+															</li>
+															{% endfor %}
+														</ul>
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+							<div class="layout__region--more-link">
+								<span class="more-link__line"></span>
+								<a href="{% url 'event:event_index' %}" class="button small">View all events</a>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+	</article>
+</div>
+{% endblock content %}

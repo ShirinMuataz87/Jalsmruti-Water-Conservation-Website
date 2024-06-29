@@ -1,0 +1,238 @@
+{% load static %}
+{% load meta %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# ">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="referrer" content="always"/>
+        <meta name="MobileOptimized" content="width" />
+        <meta name="HandheldFriendly" content="true" />
+
+        {% include "meta/meta.html" %}
+
+        <!-- CSS -->
+        <link rel="stylesheet" media="all" type="text/css" href="{% static 'css/style_tertiary.css' %}">
+        <link rel="stylesheet" media="all" type="text/css" href="{% static 'css/style_secondary.css' %}">
+        <link rel="stylesheet" media="all" type="text/css" href="{% static 'css/style_primary.css' %}">
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/img/favicon.svg' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/img/favicon.svg' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/img/favicon.svg' %}">
+        <meta name="msapplication-TileColor" content="#01ecff">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Viewport -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+
+        <!-- reCAPTCHA API -->
+        <script src='https://www.google.com/recaptcha/api.js?render={{ recaptcha_site_key }}'></script>
+
+        <!-- Custom Scripts -->
+        <script src="{% static 'js/js_style.js' %}"></script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<<Add google analytics tag id>>"></script> <!-- TODO -->
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '<<Add google analytics tag id>>'); <!-- TODO -->
+        </script>
+    </head>
+    <body class="{{style}}">
+            <div id="tray-nav-wrapper">
+                <div id="tray-nav-canvas">
+                    <header>
+                        <div class="container header-wrapper">
+                            <div  class="region region-primary-nav">
+                                <div class="block-system-branding-block">
+                                    <a href="{% url 'home:index' %}" rel="home" class="site-logo">
+                                    <img class="logo-white hidden" src="{% static 'images/img/nav_logo_white.svg' %}" alt="Home" />
+                                    <img class="logo-color" src="{% static 'images/img/nav_logo.svg' %}" alt="Home" />
+                                    </a>
+                                    <div class="site-name hidden">
+                                        <a href="{% url 'home:index' %}" title="Home" rel="home">Jalsmruti</a>
+                                    </div>
+                                    <div class="visually-hidden">Helping Put Water In Front of Mind</div>
+                                </div>
+                                <nav role="navigation" aria-labelledby="block-ts-jalsmruti-main-menu-menu" id="block-ts-jalsmrutiOrg-main-menu" class="block-menu navigation menu--main">
+                                    <h2 class="visually-hidden" id="block-ts-jalsmruti-main-menu-menu">Main navigation</h2>
+                                    <div class="menu-wrapper">
+                                        <ul class="menu">
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'initiative:initiative_index' %}">Initiatives</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'insight:insight_index' %}">Insights</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'event:event_index' %}">Events</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'home:about' %}">About Us</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <div class="header-right ">
+                                   <button class="menu-toggle" aria-label="Open mobile menu" title="Menu Toggle">
+                                    <div class="ts-menu-toggle-wrapper">
+                                        <span></span>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </header>
+                    <div class="mobile-menu-target">
+                        <div class="ts-mobile-menu__wrapper">
+                            <div  class="region region-hamburger-nav container">
+                                <div class="hamburger-header">
+                                    <a href="{% url 'home:index' %}" rel="home" class="site-logo">
+                                    <img class="logo-white" src="{% static 'images/img/nav_logo_white.svg' %}" alt="Home" />
+                                    </a>
+                                    <button class="mega_menu_close" aria-label="Toggle Mega Menu" title="Close Filter Menu">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff">
+                                            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="hamburger-content">
+                                    <nav role="navigation" aria-labelledby="block-mainnavigation-menu" id="block-mainnavigation" class="block block-menu navigation menu--main">
+                                        <h2 class="visually-hidden" id="block-mainnavigation-menu">Main navigation</h2>
+                                        <ul class="menu">
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'initiative:initiative_index' %}">Initiatives</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'insight:insight_index' %}">Insights</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'event:event_index' %}">Events</a>
+                                            </li>
+                                            <li class="menu-item menu-item--collapsed">
+                                                <a href="{% url 'home:about' %}">About</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div  id="main-content" class="region">
+                    {% block content %}
+                    {% endblock content %}
+                    </div>
+                    <div class="region region-footer-top" id="footer">
+                        <div class="container">
+                            <div class="footer-padding">
+                                <div id="block-howyoucanhelpblock" class="block block-jalsmruti-block block-how-you-can-help">
+                                    <h3 class="h4 white">How You Can Help</h3>
+                                    <p>JalSmruti relies on the generosity of donors like you to turn research into action. You can support our work by making a donation or exploring other ways to volunteer.</p>
+                                        <form>
+                                            <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                                                    data-payment_button_id="<< Add payment button id>>" async></script> <!-- TODO -->
+                                        </form>
+                                </div>
+                                <div id="block-webform" class="block block-webform block-webform-block grid">
+                                    <div class="webform-outer">
+                                        <h2>Stay Informed</h2>
+                                        <form method="post" name="contact-form" class="footerSignUpForm" action="{% url 'home:contact_form' %}">
+                                            {% csrf_token %}
+                                            <div class="webform-flexbox js-form-wrapper form-wrapper" id="edit-flexbox">
+                                                <div class="webform-flex webform-flex--1">
+                                                    <div class="webform-flex--container">
+                                                        <div class="input-wrapper js-form-item form-item">
+                                                            <label for="{{ contactForm.email.id_for_label }}" class="js-form-required form-required">Email</label>
+                                                            {{ contactForm.email }}
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+                                            <div class="form-item form-type-checkbox">
+                                                <label for="{{ contactForm.receive_newsletter.id_for_label }}">
+                                                    {{ contactForm.receive_newsletter }} I acknowledge that I want to subscribe to the newsletter.
+                                                </label>
+                                            </div>
+
+                                            <div class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+                                                <button class="button js-form-submit form-submit transition" type="submit">Submit</button>
+                                            </div>
+
+                                            {% if messages %}
+                                            <div class="response">
+                                                {% for message in messages %}
+                                                <p>{{ message }}</p>
+                                                {% endfor %}
+                                            </div>
+                                            {% endif %}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% if address or social_media_links_count > 0 %}
+                    <div class="region-footer">
+                        <div class="container">
+                            <div class="footer-padding">
+                                {% if address %}
+                                <div class="region region-footer-left">
+                                    <div id="block-addressblock" class="block block-jalsmruti-block block-address-block">
+                                        <p><strong>Jjala Ssmruti Foundation</strong><br />
+                                            {{ address }}<br />
+                                            {% if email %}
+                                            {{ email }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                {% if social_media_links_count > 0 %}
+                                <div class="region region-footer-right">
+                                    <nav role="navigation" aria-labelledby="block-socialmenu-menu" id="block-socialmenu" class="block block-menu navigation menu--social-menu">
+                                        <h2 class="visually-hidden" id="block-socialmenu-menu">Social menu</h2>
+                                        <ul class="menu">
+                                            {% for socialLink in social_media %}
+                                            {% if socialLink.name == "Facebook" and socialLink.url.strip %}
+                                            <li class="menu-item">
+                                                <a href="{{ socialLink.url.strip }}" target="_blank" class="facebook">Facebook</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if socialLink.name == "Twitter" and socialLink.url.strip %}
+                                            <li class="menu-item">
+                                                <a href="{{ socialLink.url.strip }}" target="_blank" class="twitter">Twitter</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if socialLink.name == "Instagram" and socialLink.url.strip %}
+                                            <li class="menu-item">
+                                                <a href="{{ socialLink.url.strip }}" target="_blank" class="instagram">Instagram</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if socialLink.name == "LinkedIn" and socialLink.url.strip %}
+                                            <li class="menu-item">
+                                                <a href="{{ socialLink.url.strip }}" target="_blank" class="linkedin">LinkedIn</a>
+                                            </li>
+                                            {% endif %}
+                                            {% if socialLink.name == "Youtube" and socialLink.url.strip %}
+                                            <li class="menu-item">
+                                                <a href="{{ socialLink.url.strip }}" target="_blank" class="youtube">YouTube</a>
+                                            </li>
+                                            {% endif %}
+                                            {% endfor %}
+                                        </ul>
+                                    </nav>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        <script type="text/javascript" src="{% static 'js/js_main.js' %}"></script>
+    </body>
+</html>

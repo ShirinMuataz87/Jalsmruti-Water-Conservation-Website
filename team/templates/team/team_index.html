@@ -1,0 +1,47 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+    <div class="view view-experts-staff topics-view-block">
+        <div class="container">
+            {% if team.heading and team.heading.strip %}
+            <h1 class="h1">{{team.heading}}</h1>
+            {% else%}
+            <h1 class="h1">Board Members &amp; Experts</h1>
+            {% endif %}
+		</div>
+        <div class="container">
+            <div class="view-content">
+                {% for post in posts %}
+                <div class="views-row">
+                    <div role="article"
+                         class="search-results search-results-people margin-bottom-sm search-results-container">
+                        <div class="search-results-text">
+                            <h2><a href="{% url 'team:post_detail' post.pk  post.url_slug  %}"><span
+                                    class="field">{{post.title |truncatechars:120}}</span>
+                            </a>
+                            </h2>
+                            <div class="job_title">
+                                <div class="clearfix text-formatted field field--name-field-title field__item">
+                                    <p>{{post.position |truncatechars:60}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="search-results-image">
+                            <div data-blazy="" class="blazy field field__item">
+                                <div class="media media--bundle--image media--loading media--image">
+                                    <img alt="{{post.title}}" class="b-lazy" loading="lazy"
+                                         data-src="{{post.image.url}}"
+                                         src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 100 100&#039;%2F%3E"
+                                         width="100" height="100" typeof="foaf:Image"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

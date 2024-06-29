@@ -1,0 +1,115 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-inline-blockhero">
+						<div  class="clearfix">
+							<div class="landing-page__hero has-image">
+								<div class="hero__image">
+									<div class="media media--loading media--responsive media--image">
+										<picture>
+											{% if insight.image  and insight.image.url.strip %}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{insight.image.url}}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{insight.image.url}}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{insight.image.url}}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{insight.image.url}}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{insight.image.url}}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{{insight.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+											{% else%}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/1440x700/main-background.jpg' %}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/1024x640/main-background.jpg' %}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/768x640/main-background.jpg' %}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/500x700/main-background.jpg' %}"/>
+											<img class="b-lazy b-responsive" loading="lazy" data-src="{% static 'images/img/main-background.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+											{% endif %}
+										</picture>
+									</div>
+								</div>
+								<div class="hero__text">
+									<div class="grid">
+										<div class="hero__text--inner padding-vertical">
+											<div class="margin-top-xl"></div>
+											<h1 class="h1 xl white">
+												{% if insight.heading  and insight.heading.strip  %}
+												{{insight.heading}}
+												{% else%}
+                                                <p>Insights</p>
+                                                {% endif %}
+											</h1>
+											<div class="intro">
+												{% if insight.description  and insight.description.strip  %}
+                                                {{insight.description  | safe }}
+                                                {% else%}
+												<p>Insights are articles on issues of water and it's sustainability efforts. Stay tuned for more such articles, research and more.</p>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dark-overlay"></div>
+							</div>
+						</div>
+					</div>
+					{% if posts and posts.count > 0 %}
+					<div class="block block-inline-blocklisting-block">
+						<div class="grid margin-bottom-lg unfriendly-block">
+							<div  class="layout__region layout__region--listing">
+								<div class="field field--name-field-listing">
+									<div class="field__item">
+											<div class="card-listing content-listing view view-content-listing">
+												<div class="view-content">
+													<div class="item-list">
+														<ul class="listing-items">
+															{% for post in posts %}
+															<li>
+																<div class="article">
+																	<div  class="clearfix card">
+																		<div class="card-image">
+																			<div class="media media--bundle--image media--loading media--image">
+																				<picture>
+																					<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 1024px) and (max-width: 1440px)" type="images/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<img class="b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 215 145&#039;%2F%3E" alt="" typeof="foaf:Image" />
+																				</picture>
+																			</div>
+																		</div>
+																		<div class="card-text">
+																			<div class="tags topic-tag margin-top-xs">
+																				<a href="{% url 'insight:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.category}}</a>
+																			</div>
+																			<h3 class="teaser-title margin-top-xs ">
+																				<a href="{% url 'insight:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.title |truncatechars:95}}</a>
+																			</h3>
+																			<span class="content-type-region bundle">
+																			{{post.topic}}
+																			</span>
+																			<span class="date-region date">
+																			{{post.created_on|date:"F d, Y"}}
+																			</span>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															{% endfor %}
+														</ul>
+													</div>
+												</div>
+											</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+	</article>
+</div>
+{% endblock content %}

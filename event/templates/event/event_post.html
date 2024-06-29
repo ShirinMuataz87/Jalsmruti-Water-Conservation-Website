@@ -1,0 +1,94 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+	<article role="article">
+			<div class="layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block-entity-viewnode">
+						<div class="event__detail tall-hero">
+							<div class="landing-page__hero ">
+								<div class="hero__text display-type-simple">
+									<div class="grid">
+										<div class="hero__text--inner">
+											<div class="event__type has-black-background-color has-white-color">
+												{{post.type}}
+											</div>
+											<h1 class="h1 xl">
+												{{post.title}}
+											</h1>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="black-bar margin-bottom-xs">
+								<div class="grid info__bar-inner">
+									<div class="info-inner-wrapper">
+										<span  class="event-info-item event-info-date">
+										{{post.created_on|date:"F d, Y"}}<span>•</span>{{post.start_time|time:"P"}} - {{post.end_time|time:"P"}} IST
+										</span>
+										<span  class="event-info-item event-info-location">
+										{{post.mode}}
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="detail__meta grid margin-bottom-sm">
+								<div class="detail__meta-inner two-column">
+									<div  class="layout__region layout__region--category">
+										<div  class="category-wrapper">
+											<div  class="field-label-inline">Category</div>
+											<span  class="topic-tag" >
+											<a hreflang="en">{{post.category}}</a></span>
+										</div>
+									</div>
+									<div  class="layout__region layout__region--share">
+										<div id="social-sharing-block">
+											<nav role="navigation">
+												<ul>
+													<li>
+														<a class="share-icon icon-social" aria-haspopup="true">Social</a>
+														<ul class="dropdown" aria-label="submenu">
+															<li>
+																<a href="https://twitter.com/intent/tweet?text={{ post.title }}+{% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }} via @jalsmruti" title="Share to Twitter" aria-label="Share to Twitter" rel="noopener">
+																	Twitter
+																</a>
+															</li>
+															<li>
+																<a href="https://www.linkedin.com/sharing/share-offsite/?url={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to LinkedIn" aria-label="Share to LinkedIn" rel="noopener">
+																	LinkedIn
+																</a>
+															</li>
+															<li>
+																<a href="https://www.facebook.com/sharer/sharer.php?u={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to Facebook" aria-label="Share to Facebook" rel="noopener">
+																	Facebook
+																</a>
+															</li>
+														</ul>
+													</li>
+													<li>
+														<a class="share-icon icon-email social-sharing-buttons__button" href="mailto:?subject={{post.title}}&body={% if request.is_secure %}https://{% else %}http://{% endif %}{{ request.get_host }}{{ request.get_full_path }}" title="Share to E-mail" aria-label="Share to E-mail"  target="_blank" rel="noopener">
+														Email
+														</a>
+													</li>
+													<li><a class="share-icon icon-print" href="javascript:window.print()" aria-label="Print document">Print</a></li>
+												</ul>
+											</nav>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="grid">
+								<div  class="layout__region layout__region--main_content main-content margin-bottom-lg">
+                                    {% if post.body and post.body.strip %}
+                                    {{post.body | safe }}
+                                    {% endif %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	</article>
+</div>
+{% endblock content %}

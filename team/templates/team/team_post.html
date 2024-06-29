@@ -1,0 +1,57 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+   <article role="article">
+         <div class="layout--onecol">
+            <div  class="layout__region layout__region--content">
+               <div class="block-entity-viewnode">
+                  <div class="person__detail publication__detail">
+                     <div class="landing-page__hero">
+                        <div class="hero__text">
+                           <div class="grid">
+                              <div class="hero__left">
+                                 <h1 class="h1">
+                                    {{post.title}}
+                                 </h1>
+                                 <p>{{post.position}}</p>
+                                 {% if post.linkedin  and post.linkedin.strip  %}
+                                 <div class="buttons">
+                                    <div class="button-holder">
+                                       <a class="button small" href="{{post.linkedin}}" target="_blank" >
+                                       Contact {{post.title}}
+                                       </a>
+                                    </div>
+                                 </div>
+                                 {% endif %}
+                              </div>
+                              <div class="hero__right margin-top-sm margin-bottom-sm">
+                                 <div class="media media--bundle--image media--loading media--image">
+                                    <img alt="{{post.title}}" class="b-lazy" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 220 220&#039;%2F%3E" width="220" height="220" typeof="foaf:Image" />
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="publication__main grid">
+                        <div  class="layout__region layout__region--main_content main-content">
+                           {% if post.body and post.body.strip %}
+                           {{post.body | safe }}
+                           {% endif %}
+                        </div>
+                        {% if languages and languages|length > 0 %}
+                        <div  class="layout__region layout__region--sidebar sidebar  margin-bottom-sm">
+                           <div  class="field-label-above">Languages Spoken</div>
+                           {% for language in languages %}
+                           <div  class="languages" >{{language}}</div>
+                           {% endfor %}
+                        </div>
+                        {% endif %}
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+   </article>
+</div>
+{% endblock content %}

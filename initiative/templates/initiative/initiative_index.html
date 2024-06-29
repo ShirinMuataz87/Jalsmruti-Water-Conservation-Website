@@ -1,0 +1,124 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content" class="block block-system block-system-main-block">
+	<article role="article" class="node node--type-page node--promoted node--view-mode-full">
+		<div class="node__content">
+			<div class="layout layout--onecol">
+				<div  class="layout__region layout__region--content">
+					<div class="block block-layout-builder block-inline-blockhero">
+						<div  class="ds-1col clearfix">
+							<div class="landing-page__hero has-image">
+								<div class="hero__image">
+									<div class="media media--blazy media--loading media--responsive media--image">
+										<picture>
+											{% if initiative.image  and initiative.image.url.strip %}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{initiative.image.url}}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{initiative.image.url}}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{initiative.image.url}}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{initiative.image.url}}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{initiative.image.url}}"/>
+											<img class="media__image media__element b-lazy b-responsive" loading="lazy" data-src="{{initiative.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+											{% else%}
+											<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/3000x900/main-background.jpg' %}">
+											<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{% static 'images/1440x700/main-background.jpg' %}"/>
+											<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{% static 'images/1024x640/main-background.jpg' %}"/>
+											<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{% static 'images/768x640/main-background.jpg' %}"/>
+											<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{% static 'images/500x700/main-background.jpg' %}"/>
+											<img class="media__image media__element b-lazy b-responsive" loading="lazy" data-src="{% static 'images/img/main-background.jpg' %}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 2500 1685&#039;%2F%3E" alt="" typeof="foaf:Image" />
+											{% endif %}
+										</picture>
+									</div>
+								</div>
+								<div class="hero__text">
+									<div class="grid">
+										<div class="hero__text--inner padding-vertical">
+											<div class="margin-top-xl"></div>
+											<h1 class="h1 xl white">
+												{% if initiative.heading  and initiative.heading.strip  %}
+												{{initiative.heading}}
+												{% else%}
+                                                <p>Initiatives</p>
+                                                {% endif %}
+											</h1>
+											<div class="intro">
+												{% if initiative.description  and initiative.description.strip  %}
+                                                {{initiative.description  | safe }}
+                                                {% else%}
+                                                <p>We partner with champions & leaders of social, business and environmental programs to to help them proactively restore the local water cycle and thus make the critical success factor, water, available for their programs.</p>
+                                                {% endif %}
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="dark-overlay"></div>
+							</div>
+						</div>
+					</div>
+					<div class="block block-layout-builder block-extra-field-blocknodepagecontent-moderation-control">
+					</div>
+					{% if posts and posts.count > 0 %}
+					<div class="block block-layout-builder block-inline-blocklisting-block">
+						<div class="cards-content_listing grid margin-bottom-lg unfriendly-block">
+							<h2  class="h3 layout__region layout__region--header top-border-thick margin-bottom-md">
+								Our Initiatives Around India
+							</h2>
+							<div  class="layout__region layout__region--listing">
+								<div class="field field--name-field-listing field--type-viewfield field--label-hidden">
+									<div class="field__item field__item-label-hidden">
+										<div class="views-element-container">
+											<div class="card-listing content-listing view view-content-listing view-id-content_listing view-display-id-cards js-view-dom-id-345458bc7f1a8758355b19d63dc4044dfcf46cd94804f069c6c14aef3b3c8a44">
+												<div class="view-content">
+													<div class="item-list">
+														<ul class="listing-items">
+															{% for post in posts %}
+															<li>
+																<div class="project_detail">
+																	<div  class="ds-1col clearfix card">
+																		<div class="card-image">
+																			<div class="media media--bundle--image media--blazy media--loading media--responsive media--image">
+																				<picture>
+																					<source media="(min-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 1024px) and (max-width: 1440px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 768px) and (max-width: 1023px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 501px) and (max-width: 767px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<source media="(min-width: 0px) and (max-width: 500px)" type="image/jpeg" data-srcset="{{post.image.url}}"/>
+																					<img class="media__image media__element b-lazy b-responsive" loading="lazy" data-src="{{post.image.url}}" src="data:image/svg+xml;charset=utf-8,%3Csvg xmlns%3D&#039;http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg&#039; viewBox%3D&#039;0 0 463 330&#039;%2F%3E" alt="" typeof="foaf:Image" />
+																				</picture>
+																			</div>
+																		</div>
+																		<div class="card-text">
+																			<h3 class="teaser-title margin-top-xs ">
+																				<a href="{% url 'initiative:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.title |truncatechars:50}}</a>
+																			</h3>
+																			<div  class="secondary" >
+																				<p>{{post.description |truncatechars:100}}</p>
+																			</div>
+																			<a href="{% url 'initiative:post_detail' post.pk  post.url_slug  %}" class="button small white" hreflang="en">{% if post.visit_button  and post.visit_button.strip  %}{{post.visit_button}}{% else%}Visit Program{% endif %}</a>
+																			<div class="subtext margin-top-xs top-border-tiny">
+																				<span class="italic-xtra-tiny"></span>
+																				<span  class="small label" >
+																				<a href="" hreflang="en"></a></span>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</li>
+															{% endfor %}
+														</ul>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+	</article>
+</div>
+{% endblock content %}

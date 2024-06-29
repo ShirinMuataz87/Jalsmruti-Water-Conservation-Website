@@ -1,0 +1,50 @@
+{% extends 'base-home.html' %}
+{% load static %}
+{% block content %}
+<div id="block-ts-jalsmrutiOrg-content">
+    <div class="view view-events">
+        <div class="container">
+            {% if event.heading and event.heading.strip %}
+            <h1 class="h1">{{event.heading}}</h1>
+            {% else%}
+            <h1 class="h1">Events</h1>
+            {% endif %}
+        </div>
+        <div class="container">
+            <div class="results-wrapper">
+                <div class="results-body padding-bottom">
+                    <div class="view-content">
+                        {% for post in posts %}
+                        <div>
+                            <div class="clearfix search-results-container margin-bottom-sm">
+                                <div class="search-results-tags">
+                                    <div class="tags">
+                                        <div class="topic-tag">
+                                            <a href="{% url 'event:post_detail' post.pk  post.url_slug  %}"
+                                               hreflang="en">{{post.category}}</a>
+                                        </div>
+                                    </div>
+                                    <span class="content-type-region bundle">
+											{{post.type}}
+                                    </span>
+                                </div>
+                                <div class="search-results-text">
+                                    <div>
+                                        <span class="post-date">
+                                            {{post.created_on|date:"F d, Y"}}
+                                        </span>
+                                    </div>
+                                    <h3 class="h3">
+                                        <a href="{% url 'event:post_detail' post.pk  post.url_slug  %}" hreflang="en">{{post.title | truncatechars:120}}</a>
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
