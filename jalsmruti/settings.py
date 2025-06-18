@@ -40,7 +40,9 @@ if DEBUG:
     import mimetypes
     mimetypes.add_type("application/javascript", ".js", True)
 
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '.preview.app.github.dev']
+
+
 
 # Application definition
 INSTALLED_APPS = [
